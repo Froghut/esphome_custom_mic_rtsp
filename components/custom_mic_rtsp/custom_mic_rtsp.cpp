@@ -8,11 +8,14 @@ static const char *TAG = "custom_mic_rtsp.component";
 
 void custom_mic_rtsp::setup() {
 
-    this->i2s = I2SStream();
-    this->vol = VolumeStream(this->i2s);
+    I2SStream i2s; // Access I2S as stream
+    VolumeStream vol(i2s);
+    RTSPAudioSource source(vol); // IAudioSource for RTSP
+    RTSPAudioStreamer<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
+    RTSPServer<RTSPPlatformWiFi> rtsp(streamer, port, -1);
 
     // setup Audioi2s input
-    auto cfg = this->i2s.defaultConfig(RX_MODE);
+    auto cfg = i2s.defaultConfig(RX_MODE);
     cfg.channels = this->channels;
     cfg.sample_rate = this->samples_per_second;
     cfg.use_apll = false;
@@ -22,15 +25,15 @@ void custom_mic_rtsp::setup() {
     cfg.pin_ws = 5; // WS
     cfg.pin_data = 6; // SD
     cfg.pin_bck = 7; // SCK
-    this->i2s.begin(cfg);
+    i2s.begin(cfg);
 
-    auto vcfg = this->vol.defaultConfig();
+    auto vcfg = vol.defaultConfig();
     vcfg.channels = 1;
     vcfg.allow_boost = true;
     vcfg.volume = this->volume;
-    this->vol.begin(vcfg);
+    vol.begin(vcfg);
 
-    this->rtsp.begin();
+    rtsp.begin();
 
 }
 
