@@ -1,23 +1,23 @@
 #include "esphome/core/log.h"
-#include "empty_component.h"
+#include "custom_mic_rtsp.h"
 
 namespace esphome {
-namespace empty_component {
+namespace custom_mic_rtsp {
 
-static const char *TAG = "empty_component.component";
+static const char *TAG = "custom_mic_rtsp.component";
 
-void EmptyComponent::setup() {
-
-}
-
-void EmptyComponent::loop() {
+void custom_mic_rtsp::setup() {
 
 }
 
-void EmptyComponent::dump_config(){
-    ESP_LOGCONFIG(TAG, "Empty component");
+void custom_mic_rtsp::loop() {
+
+}
+
+void custom_mic_rtsp::dump_config(){
+    ESP_LOGCONFIG(TAG, "custom_mic_rtsp");
 }
 
 
-}  // namespace empty_component
+}  // namespace custom_mic_rtsp
 }  // namespace esphome

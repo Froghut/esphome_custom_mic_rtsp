@@ -2,12 +2,12 @@ import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.const import CONF_ID
 
-empty_component_ns = cg.esphome_ns.namespace("empty_component")
-EmptyComponent = empty_component_ns.class_("EmptyComponent", cg.Component)
+custom_mic_rtsp_ns = cg.esphome_ns.namespace("custom_mic_rtsp")
+custom_mic_rtsp = custom_mic_rtsp_ns.class_("custom_mic_rtsp", cg.Component)
 
 CONFIG_SCHEMA = cv.Schema(
     {
-        cv.GenerateID(): cv.declare_id(EmptyComponent),
+        cv.GenerateID(): cv.declare_id(custom_mic_rtsp),
     }
 ).extend(cv.COMPONENT_SCHEMA)
 

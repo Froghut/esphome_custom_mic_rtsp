@@ -3,9 +3,9 @@
 #include "esphome/core/component.h"
 
 namespace esphome {
-namespace empty_component {
+namespace custom_mic_rtsp {
 
-class EmptyComponent : public Component {
+class custom_mic_rtsp : public Component {
  public:
   void setup() override;
   void loop() override;
@@ -13,5 +13,5 @@ class EmptyComponent : public Component {
 };
 
 
-}  // namespace empty_component
+}  // namespace custom_mic_rtsp
 }  // namespace esphome
