@@ -7,6 +7,10 @@ namespace custom_mic_rtsp {
 static const char *TAG = "custom_mic_rtsp.component";
 
 void custom_mic_rtsp::setup() {
+
+    this->i2s = I2SStream();
+    this->vol = VolumeStream(this->i2s);
+
     // setup Audioi2s input
     auto cfg = this->i2s.defaultConfig(RX_MODE);
     cfg.channels = this->channels;
