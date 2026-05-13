@@ -6,13 +6,6 @@ namespace custom_mic_rtsp {
 
 static const char *TAG = "custom_mic_rtsp.component";
 
-  I2SStream i2s; // Access I2S as stream
-  VolumeStream vol(i2s);
-  RTSPAudioSource source(vol); // IAudioSource for RTSP
-  RTSPAudioStreamer<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
-  RTSPServer<RTSPPlatformWiFi> rtsp(streamer, port, -1);
-
-
 void custom_mic_rtsp::setup() {
     // setup Audioi2s input
     auto cfg = this->i2s.defaultConfig(RX_MODE);
