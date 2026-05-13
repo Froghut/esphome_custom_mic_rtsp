@@ -15,6 +15,11 @@ class custom_mic_rtsp : public Component {
 
   void setup() override;
   void dump_config() override;
+
+  void set_volume(float volume) { this->volume = volume;}
+
+protected:
+  float volume;
   
 };
 
