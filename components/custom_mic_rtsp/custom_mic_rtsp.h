@@ -13,12 +13,6 @@ class custom_mic_rtsp : public Component {
   int channels = 1;
   int samples_per_second = 16000;
 
-  I2SStream i2s; // Access I2S as stream
-  VolumeStream vol(this->i2s);
-  RTSPAudioSource source(this->vol); // IAudioSource for RTSP
-  RTSPAudioStreamer<RTSPPlatformWiFi> streamer(this->source); // Stream audio via RTSP
-  RTSPServer<RTSPPlatformWiFi> rtsp(this->streamer, port, -1);
-
   void setup() override;
   void dump_config() override;
   
