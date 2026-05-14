@@ -13,16 +13,28 @@ class custom_mic_rtsp : public Component {
   int channels = 1;
   int samples_per_second = 16000;
 
-  void setup() override;
   void dump_config() override;
 
   void set_volume(float volume) { this->volume = volume;}
+
+  float get_setup_priority() const override;
 
 protected:
   float volume;
   
 };
 
+template<typename... Ts> class DoInitAction : public Action<Ts...> {
+ public:
+  explicit DoInitAction(custom_mic_rtsp *ea) : ea_(ea) {}
+
+  void play(Ts... x) override {
+    this->ea_->doInit();
+  }
+
+ protected:
+  custom_mic_rtsp *ea_;
+};
 
 }  // namespace custom_mic_rtsp
 }  // namespace esphome

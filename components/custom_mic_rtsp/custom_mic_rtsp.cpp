@@ -6,7 +6,7 @@ namespace custom_mic_rtsp {
 
 static const char *TAG = "custom_mic_rtsp.component";
 
-void custom_mic_rtsp::setup() {
+void custom_mic_rtsp::doInit() {
 
     I2SStream i2s; // Access I2S as stream
     VolumeStream vol(i2s);
@@ -39,6 +39,10 @@ void custom_mic_rtsp::setup() {
 
 void custom_mic_rtsp::dump_config(){
     ESP_LOGCONFIG(TAG, "custom_mic_rtsp");
+}
+
+float custom_mic_rtsp::get_setup_priority() {
+    return -100;
 }
 
 
