@@ -41,7 +41,7 @@ void custom_mic_rtsp::dump_config(){
     ESP_LOGCONFIG(TAG, "custom_mic_rtsp");
 }
 
-float custom_mic_rtsp::get_setup_priority() {
+float custom_mic_rtsp::get_setup_priority() const {
     return -100;
 }
 
