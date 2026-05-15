@@ -19,16 +19,15 @@ CONFIG_SCHEMA = cv.Schema(
     }
 ).extend(cv.COMPONENT_SCHEMA)
 
-ACTION_SCHEMA = cv.maybe_simple_value(
-    {
-        cv.GenerateID(CONF_ID): cv.templatable(cv.use_id(custom_mic_rtsp)),
-    },
-)
-
 @automation.register_action(
     "custom_mic_rtsp.doInit",
     DoInitAction,
-    ACTION_SCHEMA,
+    maybe_simple_id(
+        {
+            cv.GenerateID(CONF_ID): cv.templatable(cv.use_id(custom_mic_rtsp)),
+        }
+    ),
+    synchronous=True,
 )
 async def custom_mic_rtsp_do_init_to_code(config, action_id, template_arg, args):
     paren = await cg.get_variable(config[CONF_ID])
