@@ -21,7 +21,7 @@ CONFIG_SCHEMA = cv.Schema(
 
 ACTION_SCHEMA = cv.maybe_simple_value(
     {
-        cv.Required(CONF_ID): cv.use_id(custom_mic_rtsp),
+        cv.GenerateID(CONF_ID): cv.templatable(cv.use_id(custom_mic_rtsp)),
     },
 )
 
