@@ -14,6 +14,7 @@ class custom_mic_rtsp : public Component {
   int samples_per_second = 16000;
 
   void dump_config() override;
+  void doInit();
 
   void set_volume(float volume) { this->volume = volume;}
 
