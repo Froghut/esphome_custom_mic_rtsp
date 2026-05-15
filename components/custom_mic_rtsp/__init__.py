@@ -22,7 +22,7 @@ CONFIG_SCHEMA = cv.Schema(
 @automation.register_action(
     "custom_mic_rtsp.doInit",
     DoInitAction,
-    maybe_simple_id(
+    cv.maybe_simple_id(
         {
             cv.GenerateID(CONF_ID): cv.templatable(cv.use_id(custom_mic_rtsp)),
         }
