@@ -39,7 +39,7 @@ void custom_mic_rtsp::doInit() {
     vcfg.volume = this->volume;
     vol.begin(vcfg);
 
-    rtsp.begin();
+    //rtsp.begin();
 
     ESP_LOGD(TAG, "init 4");
     delay(1);
