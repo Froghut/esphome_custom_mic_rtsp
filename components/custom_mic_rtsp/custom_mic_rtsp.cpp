@@ -11,8 +11,8 @@ void custom_mic_rtsp::doInit() {
     ESP_LOGD(TAG, "init 1");
     I2SStream i2s; // Access I2S as stream
     VolumeStream vol(i2s);
-    /*RTSPAudioSource source(vol); // IAudioSource for RTSP
-    RTSPAudioStreamer<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
+    RTSPAudioSource source(vol); // IAudioSource for RTSP
+    RTSPAudioStreamerUsingTask<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
     RTSPServer<RTSPPlatformWiFi> rtsp(streamer, port, -1);
 
     
@@ -29,7 +29,7 @@ void custom_mic_rtsp::doInit() {
     cfg.pin_ws = 5; // WS
     cfg.pin_data = 6; // SD
     cfg.pin_bck = 7; // SCK
-    //i2s.begin(cfg);
+    i2s.begin(cfg);
 
     ESP_LOGD(TAG, "init 3");    
     delay(1);
@@ -39,12 +39,12 @@ void custom_mic_rtsp::doInit() {
     vcfg.volume = this->volume;
     vol.begin(vcfg);
 
-    //rtsp.begin();
+    rtsp.begin();
 
     ESP_LOGD(TAG, "init 4");
     delay(1);
 
-    */
+    
 }
 
 void custom_mic_rtsp::dump_config(){
