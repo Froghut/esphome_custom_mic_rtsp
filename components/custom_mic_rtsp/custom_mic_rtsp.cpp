@@ -6,7 +6,7 @@ namespace custom_mic_rtsp {
 
 static const char *TAG = "custom_mic_rtsp.component";
 
-static RTSPServerTaskless<RTSPPlatformWiFi>& rtsp;
+static RTSPServerTaskless<RTSPPlatformWiFi>* rtsp;
 
 void custom_mic_rtsp::doInit() {
 
@@ -15,7 +15,7 @@ void custom_mic_rtsp::doInit() {
     VolumeStream vol(i2s);
     RTSPAudioSource source(vol); // IAudioSource for RTSP
     RTSPAudioStreamerUsingTask<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
-    RTSPServerTaskless<RTSPPlatformWiFi> rtsp(streamer, port, -1);
+    RTSPServerTaskless<RTSPPlatformWiFi> rtsp(streamer, port);
 
     this.rtsp = rtsp;
     
