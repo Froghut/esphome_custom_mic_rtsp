@@ -9,7 +9,7 @@ static const char *TAG = "custom_mic_rtsp.component";
 void custom_mic_rtsp::doInit() {
 
     ESP_LOGD(TAG, "init 1");
-    I2SStream i2s; // Access I2S as stream
+    /*I2SStream i2s; // Access I2S as stream
     VolumeStream vol(i2s);
     RTSPAudioSource source(vol); // IAudioSource for RTSP
     RTSPAudioStreamer<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
@@ -44,6 +44,7 @@ void custom_mic_rtsp::doInit() {
     ESP_LOGD(TAG, "init 4");
     delay(1);
 
+    */
 }
 
 void custom_mic_rtsp::dump_config(){
