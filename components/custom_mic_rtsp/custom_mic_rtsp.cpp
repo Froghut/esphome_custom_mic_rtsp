@@ -6,8 +6,6 @@ namespace custom_mic_rtsp {
 
 static const char *TAG = "custom_mic_rtsp.component";
 
-static RTSPServerTaskless<RTSPPlatformWiFi>* rtsp;
-
 void custom_mic_rtsp::doInit() {
 
     ESP_LOGD(TAG, "init 1");
@@ -17,7 +15,7 @@ void custom_mic_rtsp::doInit() {
     RTSPAudioStreamerUsingTask<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
     RTSPServerTaskless<RTSPPlatformWiFi> rtsp(streamer, port);
 
-    this->rtsp = rtsp&;
+    this->_rtsp = rtsp&;
     
     ESP_LOGD(TAG, "init 2");
     delay(1);

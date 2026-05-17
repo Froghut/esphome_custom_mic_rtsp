@@ -21,10 +21,10 @@ class custom_mic_rtsp : public Component {
   void set_volume(float volume) { this->volume = volume;}
 
   float get_setup_priority() const override;
-
+  
 protected:
   float volume;
-  
+  RTSPServerTaskless<RTSPPlatformWiFi> *_rtsp;
 };
 
 template<typename... Ts> class DoInitAction : public Action<Ts...> {
