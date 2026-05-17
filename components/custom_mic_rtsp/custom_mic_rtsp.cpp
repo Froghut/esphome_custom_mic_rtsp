@@ -16,7 +16,7 @@ void custom_mic_rtsp::doInit() {
     RTSPServerTaskless<RTSPPlatformWiFi> rtsp(streamer, port);
 
     this->_rtsp = &rtsp;
-    
+/*    
     ESP_LOGD(TAG, "init 2");
     delay(1);
     // setup Audioi2s input
