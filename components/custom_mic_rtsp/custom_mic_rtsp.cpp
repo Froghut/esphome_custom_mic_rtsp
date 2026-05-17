@@ -29,7 +29,7 @@ void custom_mic_rtsp::doInit() {
     cfg.pin_ws = 5; // WS
     cfg.pin_data = 6; // SD
     cfg.pin_bck = 7; // SCK
-    i2s.begin(cfg);
+    //i2s.begin(cfg);
 
     ESP_LOGD(TAG, "init 3");    
     delay(1);
