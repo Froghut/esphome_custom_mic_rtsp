@@ -15,6 +15,7 @@ class custom_mic_rtsp : public Component {
   int channels = 1;
   int samples_per_second = 16000;
 
+  void loop() override;
   void dump_config() override;
   void doInit();
 

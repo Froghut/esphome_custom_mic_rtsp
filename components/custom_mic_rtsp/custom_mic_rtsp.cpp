@@ -48,6 +48,11 @@ void custom_mic_rtsp::doInit() {
     
 }
 
+void custom_mic_rtsp::loop(){
+    
+}
+
+
 void custom_mic_rtsp::dump_config(){
     ESP_LOGCONFIG(TAG, "custom_mic_rtsp");
 }
