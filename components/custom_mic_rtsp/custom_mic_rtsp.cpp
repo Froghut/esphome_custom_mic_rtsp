@@ -15,7 +15,7 @@ void custom_mic_rtsp::doInit() {
     RTSPAudioStreamerUsingTask<RTSPPlatformWiFi> streamer(source); // Stream audio via RTSP
     RTSPServer<RTSPPlatformWiFi> rtsp(streamer, port, -1);
 
-    
+    /*
     ESP_LOGD(TAG, "init 2");
     delay(1);
     // setup Audioi2s input
@@ -43,7 +43,7 @@ void custom_mic_rtsp::doInit() {
 
     ESP_LOGD(TAG, "init 4");
     delay(1);
-
+*/
     
 }
 
